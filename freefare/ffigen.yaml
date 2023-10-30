@@ -1,0 +1,17 @@
+# To generate, run `dart run ffigen --config ffigen.yaml`
+
+output: "lib/src/ffi/libfreefare.g.dart"
+description: Auto-generated, internal bindings to freefare
+headers:
+  entry-points:
+    - "assets/libfreefare/**.h"
+    - "assets/nfc/**.h"
+exclude-all-by-default: true
+structs:
+  include: ["freefare.*", "nfc.*"]
+macros:
+  include: ["freefare.*", "nfc.*"]
+functions:
+  include: ["freefare.*", "nfc.*"]
+globals:
+  include: ["freefare.*", "nfc.*"]

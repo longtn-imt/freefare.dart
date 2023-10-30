@@ -1,0 +1,36 @@
+group 'com.longtn.freefare_flutter_libs'
+version '1.0'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.0.1'
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 32
+
+    // Conditional for compatibility with AGP <4.2.
+    if (project.android.hasProperty("namespace")) {
+        namespace 'com.longtn.freefare_flutter_libs'
+    }
+
+    defaultConfig {
+        minSdkVersion 16
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+
+dependencies {
+    implementation 'com.longtn:freefare-native-library:1.0.0'
+}
